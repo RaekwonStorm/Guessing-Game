@@ -10,23 +10,25 @@ h1, h3 {
   display: inline-block;
 }
 h1 {
-  font-size: 30px;
+  font-size: 50px;
 }
 h3 {
-  font-size: 15px;
+  font-size: 25px;
   margin-bottom: 100px;
 }
 
 label {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   padding-right: 5px;
 }
 
 input.box {
+  display: block;
+  margin: 10px auto 20px auto;
   background-color: #FFFFAA;
   color: #005588;
-  line-height: 15px;
+  line-height: 25px;
   padding-top: 5px;
 }
 
@@ -34,7 +36,9 @@ input.try {
   display: block;
   color: #FFFFFF;
   background-color: #005588;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 80px auto;
+  padding: 5px 15px 5px 15px;
+  font-size: 15px;
 }
 
 input.button {
