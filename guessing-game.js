@@ -18,13 +18,16 @@ function generateWinningNumber(){
 
 // Fetch the Players Guess
 
-function playersGuessSubmission(){
+function playersGuessSubmission(e){
 	if (guessCounter === 0) {
 		$('h3').html("Sorry, you're all out of guesses!");
 		$('.try').css('display', 'none');
+		$('h4').css('display','none');
 		return;
 	}
-
+	if (e.which !== 13 && e.type !== "click") {
+		return;
+	}
 	console.log("clicked")
 	playersGuess = +$('#guess').val();
 	console.log(playersGuess);
@@ -51,6 +54,7 @@ function checkGuess(){
 	if (playersGuess === winningNumber) {
 		$('h3').html('You got the correct number!');
 		$('.try').css('display', 'none');
+		$('h4').css('display','none');
 	} else if (previousGuesses.indexOf(playersGuess) !== -1) {
 		$('h3').html('You already guessed that!');
 		return "already guessed";
@@ -64,15 +68,22 @@ function checkGuess(){
 // Create a provide hint button that provides additional clues to the "Player"
 
 function provideHint(){
-	// add code here
+	if (playersGuess === 0) {
+		alert("Guess at least once before asking for a hint!")
+	} else if (Math.abs(playersGuess - winningNumber) <= 30) {
+		alert("You're within 30 of the winning number.");
+	} else {
+		alert("You're more than 30 away from the winning number.")
+	}
 }
 
 // Allow the "Player" to Play Again
 
 function playAgain(){
 	guessCounter = 5;
+	playersGuess = 0;
 	previousGuesses = [];
-	generateWinningNumber();
+	winningNumber = generateWinningNumber();
 	$('.try').css('display', 'block');
 	$('h3').html('5 Guesses Remaining');
 }
@@ -82,4 +93,8 @@ function playAgain(){
 $('.try').click(playersGuessSubmission);
 $('#replay').click(playAgain);
 $('.box').keypress(playersGuessSubmission);
+$('#hint').click(provideHint);
+$("#answer").click(function () {
+	alert("That'd be too easy! Just play the game.");
+});
 });
