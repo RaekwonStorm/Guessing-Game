@@ -28,6 +28,7 @@ function playersGuessSubmission(e){
 	if (e.which !== 13 && e.type !== "click") {
 		return;
 	}
+	$('h4').css('display','block');
 	console.log("clicked")
 	playersGuess = +$('#guess').val();
 	console.log(playersGuess);
