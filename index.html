@@ -3,21 +3,22 @@
   <head>
     <title>Reed's Guessing Game</title>
   <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="jquery.js"></script>
+  <script src="guessing-game.js"></script>
   </head>
   <body>
     <h1>Guessing Game</h1>
     
     <div>
-      <form>
     		<label for="guess">Guess The Number:</label>
-    		<input type="text" id="guess" class="box" value="Pick a number 1-100">
+    		<input type="text" id="guess" class="box" placeholder="Pick a number 1-100">
     		<input type="submit" class="try" value="Click to Guess">
     		<input type="submit" class="button" value="I Want a Hint">
-    		<input type="submit" class="button" value="Play Again">
-    		<input type="submit" class="button" value="Reveal the Answer">
-    	</form>
+        <input type="submit" class="button" value="Reveal the Answer">
+    		<input type="submit" id="replay" class="button" value="Play Again">
 
     	<h3>5 Guesses Remaining</h3>
+      <h4></h4>
       <p>Click <a href="http://puzzling.stackexchange.com/questions/3074/6-tries-to-guess-a-number-between-1-100" target="_blank" class="link">here</a> for some guessing game strategies</p>
       <p>For those with analysis paralysis, try the <a href="http://numbergenerator.org/randomnumberbetween1and100" target="_blank" class="link">random number generator</a></p>
 	</div>
