@@ -51,7 +51,11 @@ function lowerOrHigher(){
 // Check if the Player's Guess is the winning number 
 
 function checkGuess(){
-	if (playersGuess === winningNumber) {
+	if (playersGuess > 100 || playersGuess < 1) {
+		alert("Please pick a number between 1-100.");
+		return;
+	}
+	else if (playersGuess === winningNumber) {
 		$('h3').html('You got the correct number!');
 		$('.try').css('display', 'none');
 		$('h4').css('display','none');
@@ -70,7 +74,11 @@ function checkGuess(){
 function provideHint(){
 	if (playersGuess === 0) {
 		alert("Guess at least once before asking for a hint!")
-	} else if (Math.abs(playersGuess - winningNumber) <= 30) {
+	} else if (Math.abs(playersGuess - winningNumber) <= 5) {
+		alert("You're within 5 of the winning number.");
+	} else if (Math.abs(playersGuess-winningNumber) <=15) {
+		alert("You're within 15 of the winning number.");
+	} else if (Math.abs(playersGuess-winningNumber) <=30) {
 		alert("You're within 30 of the winning number.");
 	} else {
 		alert("You're more than 30 away from the winning number.")

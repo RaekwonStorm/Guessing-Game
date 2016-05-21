@@ -7,7 +7,7 @@
   background-color: #FFFFFF;
 }
 h1, h3 {
-  display: inline-block;
+  display: block;
 }
 h1 {
   font-size: 50px;
